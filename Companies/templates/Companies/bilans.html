@@ -1,0 +1,61 @@
+{% extends "presentation/header.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<style type="text/css">
+		.fd {
+			
+			width: 100%;
+			height: 500px;
+		}
+</style>
+<div class="fd">
+	<center>
+		<h1> Companies : {{siren}}</h1>
+		
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Num bilan</th>
+					<th scope="col">Date cloture exercice</th>
+					<th scope="col">Date cloture exercice last</th>
+					<th scope="col">Durée exercice</th>
+					<th scope="col">Durée exercice last</th>
+					<th scope="col">Code motif</th>
+					<th scope="col">Type bilan</th>
+					<th scope="col">Confidentialité</th>
+					<th scope="col">Code origine devise</th>
+					<th scope="col">Greffe</th>
+					<th scope="col">Num depot</th>
+					<th scope="col">Num gestion</th>
+					<th scope="col">Code devise</th>
+					<th scope="col">Date depot</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for bilan in bilans %}
+				<tr>
+					<td><a href="{% url 'pages' bilan.date_cloture_exercice bilan.num_bilan bilan.code_type_bilan %}">{{bilan.num_bilan}}</a></td>
+					<td>{{bilan.date_cloture_exercice}}</td>
+					<td>{{bilan.date_cloture_exercice_last}}</td>
+					<td>{{bilan.dure_exercice}}</td>
+					<td>{{bilan.dure_exercice_last}}</td>
+					<td>{{bilan.code_motif}}</td>
+					<td>{{bilan.code_type_bilan}}</td>
+					<td>{{bilan.code_confidentialite}}</td>
+					<td>{{bilan.code_origine_devise}}</td>
+					<td>{{bilan.code_greffe}}</td>
+					<td>{{bilan.num_depot}}</td>
+					<td>{{bilan.num_gestion}}</td>
+					<td>{{bilan.code_devise}}</td>
+					<td>{{bilan.date_depot}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</center>
+<div>
+
+
+
+{% endblock %}	

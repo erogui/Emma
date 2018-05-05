@@ -1,0 +1,104 @@
+{% extends "presentation/header.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<style type="text/css">
+		.fd {
+			
+			width: 100%;
+			height: 500px;
+		}
+</style>
+<div class="fd">
+	<center>
+		<h1> Bilan : {{date}}</h1>
+		<h2> Actif :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant brut année N</th>
+					<th scope="col">Amortissement année N</th>
+					<th scope="col">Net année N</th>
+					<th scope="col">Net année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in actif %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+					<td>{{page.m3}}</td>
+					<td>{{page.m4}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h2> Passif :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+					<th scope="col">Montant année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in passif %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h2> Compte de resultat :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant France année N</th>
+					<th scope="col">Montant Export année N</th>
+					<th scope="col">Total année N</th>
+					<th scope="col">Total année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in CR %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+					<td>{{page.m3}}</td>
+					<td>{{page.m4}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+					<th scope="col">Montant année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in CR %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		
+	</center>
+<div>
+
+
+
+{% endblock %}	

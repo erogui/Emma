@@ -1,0 +1,99 @@
+{% extends "presentation/header.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<style type="text/css">
+		.fd {
+			
+			width: 100%;
+			height: 500px;
+		}
+</style>
+<div class="fd">
+	<center>
+		<h1> Bilan : {{date}}</h1>
+		<h2> Actif et passif :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant brut année N</th>
+					<th scope="col">Amortissement année N</th>
+					<th scope="col">Net année N</th>
+					<th scope="col">Net année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in actif %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+					<td>{{page.m3}}</td>
+					<td>{{page.m4}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h2> Compte de resultat :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+					<th scope="col">Montant année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in CR %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<h2> Immobilisations – Amortissements – Plus-values, Moins-values: </h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in immo %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		
+		<h2> Relevé des Provisions - Amortissements dérogatoires – Déficits reportables :</h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in provision %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		
+		
+	</center>
+<div>
+
+
+
+{% endblock %}	

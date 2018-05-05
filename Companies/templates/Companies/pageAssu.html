@@ -1,0 +1,39 @@
+{% extends "presentation/header.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<style type="text/css">
+		.fd {
+			
+			width: 100%;
+			height: 500px;
+		}
+</style>
+<div class="fd">
+	<center>
+		
+		<h2> Compte annuels </h2>
+		<table class="table table-striped table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Code Liasse</th>
+					<th scope="col">Montant année N</th>
+					<th scope="col">Montant année N-1</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for page in affectation %}
+				<tr>
+					<td>{{page.code_liasse}}</td>
+					<td>{{page.m1}}</td>
+					<td>{{page.m2}}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</center>
+<div>
+
+
+
+{% endblock %}	
