@@ -1,5 +1,4 @@
 from django.shortcuts import render
-import pandas as pd
 from lxml import etree
 import os
 from datetime import datetime
