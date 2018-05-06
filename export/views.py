@@ -22,9 +22,9 @@ def export(request,code_activite='',code_postale='',nom ='',siren='',path='',pag
 		code_postale_new = code_postale_new+'%%'
 		siren_new = '%'+siren_new+'%'
 		nom_new = '%'+nom_new+'%'
-		res = db.select_bilan_pages_company('C:/Users/Guillaume/Documents/guillaume/depot_git/generation_ml/emma.db',code_activite_new,code_postale_new,siren_new,nom_new)
+		#res = db.select_bilan_pages_company('C:/Users/Guillaume/Documents/guillaume/depot_git/generation_ml/emma.db',code_activite_new,code_postale_new,siren_new,nom_new)
 	
-		res.to_csv(path)
+		#res.to_csv(path)
 	
 	
 	

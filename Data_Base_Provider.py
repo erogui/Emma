@@ -6,7 +6,7 @@ Created on Fri Apr 20 20:33:21 2018
 """
 
 import sqlite3 as sq
-import pandas as pd
+#import pandas as pd
 
 def insert_company(path_base,siren,denomination,adresse,code_activite):
     conn = sq.connect(path_base, timeout=15)
@@ -95,6 +95,6 @@ def select_companies(path_base):
 
 def select_bilan_pages_company(path_base,code_activite,adresse,siren,denomination):
     conn = sq.connect(path_base, timeout=15)
-    df = pd.read_sql("""SELECT * FROM pages a, companies c, bilans b WHERE a.num_bilan=b.num_bilan and b.siren=c.siren and c.code_activite LIKE '{}' and c.adresse LIKE '{}' and b.siren LIKE '{}' and c.denomination LIKE '{}'""".format(code_activite,adresse,siren,denomination),conn)
+    df =0# pd.read_sql("""SELECT * FROM pages a, companies c, bilans b WHERE a.num_bilan=b.num_bilan and b.siren=c.siren and c.code_activite LIKE '{}' and c.adresse LIKE '{}' and b.siren LIKE '{}' and c.denomination LIKE '{}'""".format(code_activite,adresse,siren,denomination),conn)
     conn.close()
     return df
